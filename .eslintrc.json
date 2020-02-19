@@ -1,0 +1,81 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "prettier/react"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
+    "rules": {
+        "prettier/prettier": "warn",
+        "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
+        "no-unexpected-multiline": "error",
+        "no-duplicate-imports": ["error", { "includeExports": true }],
+        "no-shadow": ["error", { "allow": ["done"] }],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }], // Allow ++ -- on loops
+        "no-param-reassign": ["error", { "props": false }],
+        "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+        "react/destructuring-assignment": "off",
+        "react/jsx-props-no-spreading": [
+            "off",
+            {
+                "explicitSpread": "ignore"
+            }
+        ],
+        "react/display-name": ["off", { "ignoreTranspilerName": false }],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn", // https://github.com/facebook/react/issues/14920
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            "rules": {
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-var-requires": "warn", // https://github.com/airbnb/javascript#modules--use-them
+                "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }], // duplicate of by no-unused-vars
+                "@typescript-eslint/interface-name-prefix": "off", // { "prefixWithI": "always" },
+                "@typescript-eslint/explicit-function-return-type": "off" // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md#configuring-in-a-mixed-jsts-codebase
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src/"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        },
+        "react": {
+            "version": "detect"
+        }
+    }
+}

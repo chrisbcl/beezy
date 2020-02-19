@@ -1,0 +1,51 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "@types",
+        // No module system, concatenated file
+        "module": "esnext",
+
+        "moduleResolution": "node",
+        // Set React as the JSX factory
+        "jsx": "react",
+
+        // Target ES6 for more modern browsers
+        "target": "es5",
+
+        // Include typings from built-in lib declarations
+        "lib": ["es6", "dom", "dom.iterable"],
+
+        // Allow importing like `import React from 'react'`
+        "allowSyntheticDefaultImports": true,
+        // Include module source maps for debugging
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "strict": true /* Enable all strict type-checking options. */,
+        /* Strict Type-Checking Options */
+        "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+        "strictNullChecks": true /* Enable strict null checks. */,
+        "strictPropertyInitialization": true /* Enable strict checking of property initialization in classes. */,
+        "strictFunctionTypes": true /* Enable strict checking of function types. */,
+        "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+        "alwaysStrict": true /* Parse in strict mode and emit "use strict" for each source file. */,
+
+        "noUnusedLocals": true /* Report errors on unused locals. */,
+        "noUnusedParameters": true /* Report errors on unused parameters. */,
+        "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+        "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+        /* Debugging Options */
+        "traceResolution": false /* Report module resolution log messages. */,
+        "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
+        "listFiles": false /* Print names of files part of the compilation. */,
+        "pretty": true /* Stylize errors and messages using color and context. */,
+
+        "paths": {
+            "@beezy": ["index"]
+        },
+        "baseUrl": "./src",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*", "@types"],
+    "exclude": ["node_modules/**", "dist"]
+}

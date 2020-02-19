@@ -1,0 +1,29 @@
+@import 'style/colors.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html,
+body {
+    margin: 0;
+    color: $text;
+}
+
+body {
+    overflow: hidden;
+    font-family: arial;
+    font-style: normal;
+    font-size: small;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+#root {
+    display: contents;
+}

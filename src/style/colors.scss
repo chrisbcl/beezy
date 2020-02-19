@@ -1,0 +1,53 @@
+$header: #0f7fe0;
+$footer: #333333;
+$primary: #0072b9;
+$secondary: #dcdcdc;
+$grey: grey;
+$lightGrey: lightgrey;
+$white: #ffffff;
+$black: #000000;
+$text: rgba(0, 0, 0, 0.95);
+
+@function color-light-percent($target, $percentage) {
+    @return lighten($target, $percentage);
+}
+
+@function color-dark-percent($target, $percentage) {
+    @return darken($target, $percentage);
+}
+
+:export {
+    header: $header;
+    footer: $footer;
+    primary: $primary;
+    secondary: $secondary;
+    white: $white;
+    black: $black;
+    grey: $grey;
+    lightGrey: $lightGrey;
+    text: $text;
+    headerLight5: color-light-percent($header, 5%);
+    headerLight10: color-light-percent($header, 10%);
+    headerDark5: color-dark-percent($header, 5%);
+    headerDark10: color-dark-percent($header, 10%);
+    footerLight5: color-light-percent($footer, 5%);
+    footerLight10: color-light-percent($footer, 10%);
+    footerDark5: color-dark-percent($footer, 5%);
+    footerDark10: color-dark-percent($footer, 10%);
+    greyLight5: color-light-percent($grey, 5%);
+    greyLight10: color-light-percent($grey, 10%);
+    greyDark5: color-dark-percent($grey, 5%);
+    greyDark10: color-dark-percent($grey, 10%);
+    lightGreyLight5: color-light-percent($lightGrey, 5%);
+    lightGreyLight10: color-light-percent($lightGrey, 10%);
+    lightGreyDark5: color-dark-percent($lightGrey, 5%);
+    lightGreyDark10: color-dark-percent($lightGrey, 10%);
+    primaryLight5: color-light-percent($primary, 5%);
+    primaryLight10: color-light-percent($primary, 10%);
+    primaryDark5: color-dark-percent($primary, 5%);
+    primaryDark10: color-dark-percent($primary, 10%);
+    secondaryLight5: color-light-percent($secondary, 5%);
+    secondaryLight10: color-light-percent($secondary, 10%);
+    secondaryDark5: color-dark-percent($secondary, 5%);
+    secondaryDark10: color-dark-percent($secondary, 10%);
+}
