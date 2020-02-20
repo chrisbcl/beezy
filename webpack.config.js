@@ -1,7 +1,7 @@
 const CopyPlugin = require.main.require('copy-webpack-plugin');
 const webpack = require.main.require('webpack');
 const dotenv = require.main.require('dotenv');
-
+const path = require.main.require('path');
 // environment variables from https://medium.com/@trekinbami/using-environment-variables-in-react-6b0a99d83cf5
 module.exports = () => {
     // call dotenv and it will return an Object with a parsed key
@@ -22,9 +22,9 @@ module.exports = () => {
         entry: './src/index.tsx',
 
         // Where to compile the bundle
-        // By default the output directory is `dist`
         output: {
-            filename: 'bundle.min.js'
+            filename: 'bundle.min.js',
+            path: path.resolve(__dirname, 'build')
         },
 
         // Supported file loaders
@@ -65,7 +65,8 @@ module.exports = () => {
             new CopyPlugin([
                 { from: 'node_modules/react/umd/react.production.min.js', to: 'externals/' },
                 { from: 'node_modules/react-dom/umd/react-dom.production.min.js', to: 'externals/' },
-                { from: 'node_modules/styled-components/dist/styled-components.min.js', to: 'externals/' }
+                { from: 'node_modules/styled-components/dist/styled-components.min.js', to: 'externals/' },
+                { from: 'public' }
             ]),
             new webpack.DefinePlugin(envKeys)
         ]
