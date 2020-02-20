@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import colors from '../../style/colors.scss';
-import { ICharacterURL } from '../Characters';
+import colors from '../../../style/colors.scss';
+import { ICharacterURL } from '../../Characters';
 import {
     StyledCharacterURL,
     StyledCharacterURLs,

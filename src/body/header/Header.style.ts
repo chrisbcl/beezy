@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import colors from './style/colors.scss';
+import colors from '../../style/colors.scss';
 
 export const StyledHeaderLink = styled(Link)`
     display: flex;

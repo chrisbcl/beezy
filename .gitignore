@@ -1,5 +1,5 @@
 node_modules
 .vscode
 @types
-dist
+build
 package-lock.json

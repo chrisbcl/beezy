@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import StyledInput from '../components/Input/Input.style';
-import Select, { getOptionTypeByValue } from '../components/Select/Select';
-import useSearch from '../hooks/useSearch';
-import useSort from '../hooks/useSort';
+import StyledInput from '../../../components/Input/Input.style';
+import Select, { getOptionTypeByValue } from '../../../components/Select/Select';
+import { ICharacter } from '../../Characters';
+import useSearch from '../../hooks/useSearch';
+import useSort from '../../hooks/useSort';
 import { StyledCharacterListHeader, StyledSearch, StyledSort } from './CharacterListHeader.style';
-import { ICharacter } from './Characters';
 
 interface ICharacterListHeaderProps {
     onSearchChange: (filteredList: ICharacter[]) => void;

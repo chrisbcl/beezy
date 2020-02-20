@@ -1,9 +1,9 @@
 import { ChangeEvent, useCallback, useContext, useMemo, useState } from 'react';
 import { ValueType } from 'react-select';
-import { ICharacter, ListCharacter } from '../characters/Characters';
-import { CharactersContext } from '../characters/Characters.context';
-import { OptionType } from '../components/Select/Select';
-import Constants from '../Constants';
+import { OptionType } from '../../components/Select/Select';
+import Constants from '../../utils/Constants';
+import { ICharacter, ListCharacter } from '../Characters';
+import { CharactersContext } from '../Characters.context';
 
 const useSearch = (sortedList: ICharacter[]) => {
     const characters = useContext(CharactersContext);

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { StyledLink } from '../../App.style';
 import Field from '../../components/Field/Field';
 import List from '../../components/List/List';
-import Constants from '../../Constants';
+import Constants from '../../utils/Constants';
 import { ICharacter } from '../Characters';
 import { CharactersContext } from '../Characters.context';
 import { setCharacter } from '../CharactersActions';
@@ -19,7 +19,7 @@ import {
     StyledCharacterDetailsHeaderMain,
     StyledImage
 } from './CharacterDetails.style';
-import CharacterURLs from './CharacterURLs';
+import CharacterURLs from './components/CharacterURLs';
 
 const CharacterDetails = () => {
     const characters = useContext(CharactersContext);

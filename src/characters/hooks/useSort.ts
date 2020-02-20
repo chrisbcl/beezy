@@ -1,8 +1,8 @@
 import { useCallback, useContext, useMemo, useState } from 'react';
 import { ValueType } from 'react-select';
-import { ICharacter, ListCharacter } from '../characters/Characters';
-import { CharactersContext } from '../characters/Characters.context';
-import { OptionType } from '../components/Select/Select';
+import { OptionType } from '../../components/Select/Select';
+import { ICharacter, ListCharacter } from '../Characters';
+import { CharactersContext } from '../Characters.context';
 
 enum SORT_DIRECTION {
     ASC = 'asc',

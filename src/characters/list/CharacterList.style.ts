@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../style/colors.scss';
+import colors from '../../style/colors.scss';
 
 interface IStyledCharacterListProps {
     columnNumber: number;

@@ -1,9 +1,9 @@
 import React from 'react';
 import Media from 'react-media';
 import { MemoryRouter as Router, Route } from 'react-router-dom';
-import CharacterList from './CharacterList';
 import CharactersBigScreenStyled from './Characters.style';
 import CharacterDetails from './details/CharacterDetails';
+import CharacterList from './list/CharacterList';
 
 export interface IListCharacter {
     id: string;

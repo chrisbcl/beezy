@@ -1,8 +1,11 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import Paginator from 'react-hooks-paginator';
 import { FaSearchPlus } from 'react-icons/fa';
-import { StyledLink } from '../App.style';
-import Constants from '../Constants';
+import { StyledLink } from '../../App.style';
+import Constants from '../../utils/Constants';
+import { ICharacter, ListCharacter } from '../Characters';
+import { CharactersContext } from '../Characters.context';
+import { renderCellValue } from '../CharactersUtils';
 import {
     StyledBody,
     StyledCellContainer,
@@ -14,10 +17,7 @@ import {
     StyledRowCell,
     StyledTablePaginator
 } from './CharacterList.style';
-import CharacterListHeader from './CharacterListHeader';
-import { ICharacter, ListCharacter } from './Characters';
-import { CharactersContext } from './Characters.context';
-import { renderCellValue } from './CharactersUtils';
+import CharacterListHeader from './components/CharacterListHeader';
 
 const CharacterList = () => {
     const characters = useContext(CharactersContext);

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import Constants from '../Constants';
+import Constants from '../utils/Constants';
 import { ListCharacter } from './Characters';
 
 export enum IMAGE_VARIANT {

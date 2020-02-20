@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
-import { ICharacter, ListCharacter } from '../characters/Characters';
-import { CharactersAction } from '../characters/CharactersActions';
-import Constants from '../Constants';
+import Constants from '../../utils/Constants';
+import { ICharacter, ListCharacter } from '../Characters';
+import { CharactersAction } from '../CharactersActions';
 
 export interface IAction {
     type: CharactersAction;

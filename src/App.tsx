@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './about/About';
 import './app.scss';
 import { StyledApp, StyledContent } from './App.style';
+import Footer from './body/footer/Footer';
+import Header from './body/header/Header';
 import Characters, { ICharacter } from './characters/Characters';
 import { CharactersContext } from './characters/Characters.context';
 import { setCharacterList } from './characters/CharactersActions';
 import CharacterDetails from './characters/details/CharacterDetails';
-import Footer from './Footer';
-import Header from './Header';
+import useCharacters from './characters/hooks/useCharacters';
 import Home from './home/Home';
-import useCharacters from './hooks/useCharacters';
 
 export interface IFetchCharactersResult {
     data: {

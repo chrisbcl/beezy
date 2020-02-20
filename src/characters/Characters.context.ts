@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { IAction, ICharactersState } from '../hooks/useCharacters';
 import { ListCharacter } from './Characters';
+import { IAction, ICharactersState } from './hooks/useCharacters';
 
 export interface ICharacters {
     state: ICharactersState;
