@@ -1,11 +1,17 @@
 import React from 'react';
-import StyledHome from './Home.style';
+import Image from '../components/Image/Image';
+import { StyledHome, StyledHomeImage } from './Home.style';
 
 const Home = () => {
     return (
         <StyledHome>
-            This React App displays a limited 200 characters from the Marvel Universe with the possibility of seeing the
-            details of each one
+            <StyledHomeImage>
+                <Image src='/images/marvel.png' alt='marvel.png' />
+            </StyledHomeImage>
+            <div>
+                This React App displays a limited 200 characters from the Marvel Universe with the possibility of seeing
+                it&apos;s details
+            </div>
         </StyledHome>
     );
 };

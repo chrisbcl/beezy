@@ -22,7 +22,7 @@ export const StyledCharacterDetailsContent = styled.div`
     grid-gap: 5px;
 `;
 
-export const StyledImage = styled.div<IStyledImageProps>`
+export const StyledCharacterImage = styled.div<IStyledImageProps>`
     visibility: ${props => (props.loaded ? 'visible' : 'hidden')};
 `;
 

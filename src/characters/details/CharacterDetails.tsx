@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Redirect, useParams } from 'react-router-dom';
 import { StyledLink } from '../../App.style';
 import Field from '../../components/Field/Field';
+import Image from '../../components/Image/Image';
 import List from '../../components/List/List';
 import getFormattedDate from '../../utils/Utils';
 import { ICharacter } from '../Characters';
@@ -16,7 +17,7 @@ import {
     StyledCharacterDetailsContent,
     StyledCharacterDetailsHeader,
     StyledCharacterDetailsHeaderMain,
-    StyledImage
+    StyledCharacterImage
 } from './CharacterDetails.style';
 import CharacterURLs from './components/CharacterURLs';
 
@@ -76,8 +77,8 @@ const CharacterDetails = () => {
                                 <Field label='Modified date'>{getFormattedDate(characterDetails.modified)}</Field>
                                 {!!characterDetails.urls.length && <CharacterURLs urls={characterDetails.urls} />}
                             </StyledCharacterDetailsHeaderMain>
-                            <StyledImage loaded={imageLoaded}>
-                                <img
+                            <StyledCharacterImage loaded={imageLoaded}>
+                                <Image
                                     src={getImageFullPath(
                                         characterDetails.thumbnail.path,
                                         characterDetails.thumbnail.extension
@@ -86,7 +87,7 @@ const CharacterDetails = () => {
                                     onError={onImageLoad}
                                     alt='Thumbnail'
                                 />
-                            </StyledImage>
+                            </StyledCharacterImage>
                         </StyledCharacterDetailsHeader>
                         {!!characterDetails.comics.items.length && (
                             <List title='Comics'>{characterDetails.comics.items.map(comic => comic.name)}</List>
