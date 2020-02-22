@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import About from './about/About';
 import './app.scss';
 import { StyledApp, StyledContent } from './App.style';
@@ -10,6 +10,7 @@ import { CharactersContext } from './characters/Characters.context';
 import { setCharacterList } from './characters/CharactersActions';
 import CharacterDetails from './characters/details/CharacterDetails';
 import useCharacters from './characters/hooks/useCharacters';
+import Error from './error/Error';
 import Home from './home/Home';
 
 export interface IFetchCharactersResult {
@@ -20,13 +21,18 @@ export interface IFetchCharactersResult {
 
 const App = () => {
     const characters = useCharacters({});
+    const [inError, setInError] = useState(false);
 
     const fetchCharacters = async () => {
-        const result = await fetch(
-            `https://gateway.marvel.com/v1/public/characters?limit=100&apikey=${process.env.API_KEY_MARVEL}`
-        );
-        const { data }: IFetchCharactersResult = await result.json();
-        characters.dispatch(setCharacterList(data.results));
+        try {
+            const result = await fetch(
+                `https://gateway.marvel.com/v1/public/characters?limit=100&apikey=${process.env.API_KEY_MARVEL}`
+            );
+            const { data }: IFetchCharactersResult = await result.json();
+            characters.dispatch(setCharacterList(data.results));
+        } catch (error) {
+            setInError(true);
+        }
     };
 
     useEffect(() => {
@@ -53,9 +59,13 @@ const App = () => {
                             <Route path='/about'>
                                 <About />
                             </Route>
+                            <Route path='/error'>
+                                <Error />
+                            </Route>
                         </Switch>
                     </StyledContent>
                     <Footer />
+                    {inError && <Redirect to='/error' />}
                 </StyledApp>
             </Router>
         </CharactersContext.Provider>

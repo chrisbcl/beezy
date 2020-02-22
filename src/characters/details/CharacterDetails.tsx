@@ -1,12 +1,11 @@
 import { IFetchCharactersResult } from 'App';
-import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { StyledLink } from '../../App.style';
 import Field from '../../components/Field/Field';
 import List from '../../components/List/List';
-import Constants from '../../utils/Constants';
+import getFormattedDate from '../../utils/Utils';
 import { ICharacter } from '../Characters';
 import { CharactersContext } from '../Characters.context';
 import { setCharacter } from '../CharactersActions';
@@ -25,6 +24,7 @@ const CharacterDetails = () => {
     const characters = useContext(CharactersContext);
     const [characterDetails, setCharacterDetails] = useState<ICharacter | null>(null);
     const [imageLoaded, setImageLoaded] = useState(false);
+    const [inError, setInError] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
@@ -32,13 +32,17 @@ const CharacterDetails = () => {
             if (id && id in characters.state.charactersList) {
                 setCharacterDetails(characters.state.charactersList[id]);
             } else if (id) {
-                const result = await fetch(
-                    `https://gateway.marvel.com/v1/public/characters/${id}?apikey=${process.env.API_KEY_MARVEL}`
-                );
-                const { data }: IFetchCharactersResult = await result.json();
-                if (data.results.length) {
-                    characters.dispatch(setCharacter(data.results[0]));
-                    setCharacterDetails(data.results[0]);
+                try {
+                    const result = await fetch(
+                        `https://gateway.marvel.com/v1/public/characters/${id}?apikey=${process.env.API_KEY_MARVEL}`
+                    );
+                    const { data }: IFetchCharactersResult = await result.json();
+                    if (data.results.length) {
+                        characters.dispatch(setCharacter(data.results[0]));
+                        setCharacterDetails(data.results[0]);
+                    }
+                } catch (error) {
+                    setInError(true);
                 }
             }
         };
@@ -53,6 +57,7 @@ const CharacterDetails = () => {
 
     return (
         <>
+            {inError && <Redirect to='/error' />}
             {characterDetails && (
                 <StyledCharacterDetails>
                     <StyledCharacterDetailsActions>
@@ -68,9 +73,7 @@ const CharacterDetails = () => {
                                 {characterDetails.description && (
                                     <Field label='Description'>{characterDetails.description}</Field>
                                 )}
-                                <Field label='Modified date'>
-                                    {moment(characterDetails.modified).format(Constants.DATE_FORMAT)}
-                                </Field>
+                                <Field label='Modified date'>{getFormattedDate(characterDetails.modified)}</Field>
                                 {!!characterDetails.urls.length && <CharacterURLs urls={characterDetails.urls} />}
                             </StyledCharacterDetailsHeaderMain>
                             <StyledImage loaded={imageLoaded}>

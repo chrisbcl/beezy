@@ -1,5 +1,5 @@
-import moment from 'moment';
 import Constants from '../utils/Constants';
+import getFormattedDate from '../utils/Utils';
 import { ListCharacter } from './Characters';
 
 export enum IMAGE_VARIANT {
@@ -17,7 +17,7 @@ export function getImageFullPath(path: string, extension: string, variant: IMAGE
 
 export function renderCellValue(value: any, column: ListCharacter, columnTypes: { [key in ListCharacter]: string }) {
     if (columnTypes[column] === Constants.TYPES.DATE) {
-        return moment(value).format(Constants.DATE_FORMAT);
+        return getFormattedDate(value);
     }
     return value;
 }

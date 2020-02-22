@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const StyledAbout = styled.div`
+const StyledError = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
 
-export default StyledAbout;
+export default StyledError;
