@@ -12,7 +12,8 @@ export enum IMAGE_VARIANT {
 }
 
 export function getImageFullPath(path: string, extension: string, variant: IMAGE_VARIANT = IMAGE_VARIANT.MEDIUM) {
-    return `${path}/${variant}.${extension}`;
+    const fullPath = `${path}/${variant}.${extension}`;
+    return fullPath.replace('http://', 'https://');
 }
 
 export function renderCellValue(value: any, column: ListCharacter, columnTypes: { [key in ListCharacter]: string }) {
