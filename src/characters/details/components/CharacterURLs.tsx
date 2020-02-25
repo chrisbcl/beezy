@@ -10,9 +10,13 @@ import {
 } from './CharacterURLs.style';
 
 interface ICharacterURLsProps {
+    /** List of the character's reference urls */
     urls: ICharacterURL[];
 }
 
+/**
+ * Displays the character's references with a link to open the url.
+ */
 const CharacterURLs = ({ urls }: ICharacterURLsProps) => {
     return (
         <StyledCharacterURLs>

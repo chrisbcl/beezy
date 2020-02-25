@@ -19,6 +19,11 @@ export interface IFetchCharactersResult {
     };
 }
 
+/**
+ * Router and routes definition.
+ * Fetch the characters data and provides the context for the inner components.
+ * Limit set by the fetching marvel API: 100
+ */
 const App = () => {
     const characters = useCharacters({});
     const [inError, setInError] = useState(false);

@@ -7,11 +7,17 @@ import useSort from '../../hooks/useSort';
 import { StyledCharacterListHeader, StyledSearch, StyledSort } from './CharacterListHeader.style';
 
 interface ICharacterListHeaderProps {
+    /** Handler when the search input or search field changes */
     onSearchChange: (filteredList: ICharacter[]) => void;
+    /** Handler when the sort field or sort direction changes */
     onSortChange: (sortedList: ICharacter[]) => void;
+    /** Current sorted list */
     sortedList: ICharacter[];
 }
 
+/**
+ * Component that displays the sort and search components to filter and sort eh characters list.
+ */
 const CharacterListHeader = ({ onSearchChange, onSortChange, sortedList }: ICharacterListHeaderProps) => {
     const { searchOption, onSearchInputChange, onSearchOptionChange, searchOptions, memoFilterCharacters } = useSearch(
         sortedList

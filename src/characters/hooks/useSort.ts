@@ -4,6 +4,9 @@ import { OptionType } from '../../components/Select/Select';
 import { ICharacter, ListCharacter } from '../Characters';
 import { CharactersContext } from '../Characters.context';
 
+/**
+ * Sort direction: ascendent and descendent
+ */
 enum SORT_DIRECTION {
     ASC = 'asc',
     DESC = 'desc'
@@ -14,6 +17,9 @@ const SORT_DIRECTION_OPTIONS = [
     { value: SORT_DIRECTION.DESC, label: 'Descendent' }
 ];
 
+/**
+ * Hook to handle the characters list sorting. It's sorts by field and direction (ASC and DESC)
+ */
 const useSort = () => {
     const characters = useContext(CharactersContext);
     const [sortField, setSortField] = useState<ListCharacter>('id');

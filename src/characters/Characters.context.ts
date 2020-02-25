@@ -9,13 +9,4 @@ export interface ICharacters {
     columnTypes: { [key in ListCharacter]: string };
 }
 
-const characters: ICharacters = {
-    state: {
-        charactersList: {}
-    },
-    dispatch: () => undefined,
-    columns: {} as any,
-    columnTypes: {} as any
-};
-
-export const CharactersContext = createContext(characters);
+export const CharactersContext = createContext<ICharacters>({} as ICharacters);

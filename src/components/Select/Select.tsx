@@ -9,13 +9,21 @@ export function getOptionTypeByValue(value: any, options: OptionType[]): OptionT
 }
 
 interface ISelectProps {
+    /** Value selected */
     value?: OptionType;
+    /** Options available to select */
     options: OptionType[];
+    /** Handler when the selected value changes */
     onChange?: (option: ValueType<OptionType>) => void;
+    /** Component's width (CSS value) */
     width?: string;
+    /** Placeholder */
     placeholder?: string;
 }
 
+/**
+ * Select component from react-select
+ */
 const Select = ({ value, options, onChange, width, placeholder = '' }: ISelectProps) => {
     return (
         <StyledSelect

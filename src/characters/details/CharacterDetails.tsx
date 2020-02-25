@@ -21,6 +21,18 @@ import {
 } from './CharacterDetails.style';
 import CharacterURLs from './components/CharacterURLs';
 
+/**
+ * Displays the character's details with the option to close and go back to the characters list.
+ * If the character's details is not present in the current characters list, it will try to fetch the
+ * information and updates the characters list.
+ *  - main information
+ *  - thumbnail
+ *  - references
+ *  - comics
+ *  - stories
+ *  - series
+ *  - events
+ */
 const CharacterDetails = () => {
     const characters = useContext(CharactersContext);
     const [characterDetails, setCharacterDetails] = useState<ICharacter | null>(null);

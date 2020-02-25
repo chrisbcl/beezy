@@ -20,6 +20,10 @@ import {
 } from './CharacterList.style';
 import CharacterListHeader from './components/CharacterListHeader';
 
+/**
+ * Displays the characters list in form of a paginated table with link to see the character's details.
+ * Supports filtering and sorting by the various fields.
+ */
 const CharacterList = () => {
     const characters = useContext(CharactersContext);
     const columnNumber = Object.keys(characters.columns).length;

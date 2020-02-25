@@ -1,6 +1,9 @@
 import React from 'react';
 import StyledAbout from './About.style';
 
+/**
+ * Displays the About page.
+ */
 const About = () => {
     return (
         <StyledAbout>

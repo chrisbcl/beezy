@@ -2,10 +2,15 @@ import React, { ReactNode } from 'react';
 import { StyledItem, StyledList, StyledListTitle, StyledUnorderedList } from './List.style';
 
 interface IListProps {
+    /** List items */
     children: ReactNode[];
+    /** List title */
     title?: string;
 }
 
+/**
+ * List component using ul and li elements
+ */
 const List = ({ children, title }: IListProps) => {
     return (
         <StyledList>

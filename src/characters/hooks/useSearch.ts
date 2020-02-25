@@ -5,6 +5,11 @@ import Constants from '../../utils/Constants';
 import { ICharacter, ListCharacter } from '../Characters';
 import { CharactersContext } from '../Characters.context';
 
+/**
+ * Hook that handles the characters list filtering. Supports searching by all
+ * fields or by a specific field.
+ * @param sortedList current sorted list
+ */
 const useSearch = (sortedList: ICharacter[]) => {
     const characters = useContext(CharactersContext);
 
@@ -12,15 +17,16 @@ const useSearch = (sortedList: ICharacter[]) => {
     const [searchInput, setSearchInput] = useState('');
     const [searchColumns, setSearchColumns] = useState(Object.keys(characters.columns) as ListCharacter[]);
 
-    const getSearchOptions = useCallback(() => {
-        return [
+    const getSearchOptions = useCallback(
+        () => [
             { value: Constants.ALL_OPTION, label: 'All' },
             ...Object.keys(characters.columns).map(key => ({
                 value: key,
                 label: characters.columns[key as ListCharacter]
             }))
-        ];
-    }, [characters.columns]);
+        ],
+        [characters.columns]
+    );
 
     const filterFn = (input: string, character: ICharacter, columnKeys: ListCharacter[]) => {
         return columnKeys.some(column =>

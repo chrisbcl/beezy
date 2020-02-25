@@ -19,6 +19,9 @@ enum Columns {
     MODIFIED = 'modified'
 }
 
+/**
+ * Columns labels
+ */
 export const COLUMNS: { [key in ListCharacter]: string } = {
     id: 'ID',
     name: 'Name',
@@ -26,6 +29,9 @@ export const COLUMNS: { [key in ListCharacter]: string } = {
     modified: 'Modified Date'
 } as const;
 
+/**
+ * Columns types
+ */
 export const COLUMN_TYPES = {
     [Columns.ID]: Constants.TYPES.TEXT,
     [Columns.NAME]: Constants.TYPES.TEXT,
@@ -33,6 +39,10 @@ export const COLUMN_TYPES = {
     [Columns.MODIFIED]: Constants.TYPES.DATE
 } as const;
 
+/**
+ * Hook that handles the state management of the characters
+ * @param initialCharacters initial characters list
+ */
 const useCharacters = (initialCharacters: { [key: string]: ICharacter }) => {
     const initialState: ICharactersState = {
         charactersList: initialCharacters

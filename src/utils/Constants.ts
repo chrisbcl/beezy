@@ -1,3 +1,6 @@
+/**
+ * Constants used through out the App
+ */
 const Constants = {
     CHARACTER_LIST: {
         PAGE_LIMIT: 15

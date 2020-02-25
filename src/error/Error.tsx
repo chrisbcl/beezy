@@ -1,6 +1,9 @@
 import React from 'react';
 import StyledError from './Error.style';
 
+/**
+ * Error page to be displayed when the data fetching fails.
+ */
 const Error = () => {
     return (
         <StyledError>

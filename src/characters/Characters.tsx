@@ -5,6 +5,9 @@ import CharactersBigScreenStyled from './Characters.style';
 import CharacterDetails from './details/CharacterDetails';
 import CharacterList from './list/CharacterList';
 
+/**
+ * Fields that are displayed on characters table
+ */
 export interface IListCharacter {
     id: string;
     name: string;
@@ -44,6 +47,9 @@ interface ICharacterList<T> {
     items: T[];
 }
 
+/**
+ * Full information on a character
+ */
 export interface ICharacter extends IListCharacter {
     resourceURI: string;
     urls: ICharacterURL[];
@@ -56,6 +62,10 @@ export interface ICharacter extends IListCharacter {
 
 export type ListCharacter = keyof IListCharacter;
 
+/**
+ * Characters page that displays the characters table and depending on the width of the window
+ * it also displays the character details on the side or on a different page.
+ */
 const Characters = () => {
     return (
         <Media query='(max-width: 599px)'>
