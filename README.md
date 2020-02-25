@@ -37,7 +37,8 @@ This app is deployed on heroku: [HerokuLink](https://safe-river-19712.herokuapp.
 
 ## Built With
 
--   [ReactJS](http://www.reactjs.org/)
+-   [TypeScript](https://www.typescript.org/)
+-   [ReactJS](https://www.reactjs.org/)
 -   [ExpressJS](https://www.expressjs.com/)
 -   [NodeJS](https://www.nodejs.org/)
 -   [npm](https://www.npmjs.org/)
