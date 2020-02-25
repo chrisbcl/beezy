@@ -43,6 +43,10 @@ This app is deployed on heroku: [HerokuLink](https://safe-river-19712.herokuapp.
 -   [NodeJS](https://www.nodejs.org/)
 -   [npm](https://www.npmjs.org/)
 
+## Browser Support
+
+Since the App uses JavaScript Promises and use the CSS `display: contents;` property, only some browsers support it ([CanIUse](https://caniuse.com/#feat=css-display-contents)).
+
 ## Authors
 
 -   **Christopher Costa**
