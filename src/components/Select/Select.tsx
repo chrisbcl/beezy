@@ -13,10 +13,19 @@ interface ISelectProps {
     options: OptionType[];
     onChange?: (option: ValueType<OptionType>) => void;
     width?: string;
+    placeholder?: string;
 }
 
-const Select = ({ value, options, onChange, width }: ISelectProps) => {
-    return <StyledSelect value={value} options={options} onChange={onChange} styles={SelectStyles({ width })} />;
+const Select = ({ value, options, onChange, width, placeholder = '' }: ISelectProps) => {
+    return (
+        <StyledSelect
+            placeholder={placeholder}
+            value={value}
+            options={options}
+            onChange={onChange}
+            styles={SelectStyles({ width })}
+        />
+    );
 };
 
 export default Select;

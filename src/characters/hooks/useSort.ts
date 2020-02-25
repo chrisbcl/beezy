@@ -19,7 +19,7 @@ const useSort = () => {
     const [sortField, setSortField] = useState<ListCharacter>('id');
     const [sortDirection, setSortDirection] = useState(SORT_DIRECTION.ASC);
 
-    const getSortFieldOptions = useCallback(() => {
+    const sortFieldOptions = useMemo(() => {
         return Object.keys(characters.columns).map(key => ({
             value: key,
             label: characters.columns[key as ListCharacter]
@@ -78,7 +78,7 @@ const useSort = () => {
         onSortDirectionChange,
         onSortFieldOptionChange,
         memoSortCharacters,
-        sortFieldOptions: getSortFieldOptions(),
+        sortFieldOptions,
         sortDirectionOptions: SORT_DIRECTION_OPTIONS
     };
 };

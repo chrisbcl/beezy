@@ -13,6 +13,7 @@ import {
     StyledCharacterTable,
     StyledHeader,
     StyledHeaderColumn,
+    StyledHeaderRow,
     StyledRow,
     StyledRowCell,
     StyledTablePaginator
@@ -50,17 +51,21 @@ const CharacterList = () => {
             <StyledCharacterTable columnNumber={columnNumber + 1}>
                 <StyledHeader>
                     {Object.values(characters.columns).map(column => (
-                        <StyledCellContainer>
-                            <StyledHeaderColumn>{column}</StyledHeaderColumn>
-                        </StyledCellContainer>
+                        <StyledHeaderRow key={column} data-testid='header-row'>
+                            <StyledCellContainer>
+                                <StyledHeaderColumn>{column}</StyledHeaderColumn>
+                            </StyledCellContainer>
+                        </StyledHeaderRow>
                     ))}
-                    <StyledCellContainer />
+                    <StyledHeaderRow>
+                        <StyledCellContainer />
+                    </StyledHeaderRow>
                 </StyledHeader>
-                <StyledBody>
+                <StyledBody data-testid='body'>
                     {currentData.map(character => (
-                        <StyledRow>
+                        <StyledRow key={`row-${character.id}`} data-testid='row'>
                             {Object.keys(characters.columns).map(column => (
-                                <StyledCellContainer>
+                                <StyledCellContainer key={`${column}-${character.id}`} data-testid='cell'>
                                     <StyledRowCell title={character[column as ListCharacter]?.toString()}>
                                         {renderCellValue(
                                             character[column as ListCharacter],

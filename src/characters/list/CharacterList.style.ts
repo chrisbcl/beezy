@@ -5,15 +5,19 @@ interface IStyledCharacterListProps {
     columnNumber: number;
 }
 
-export const StyledHeader = styled.th`
+export const StyledHeader = styled.thead`
+    display: contents;
+
+    @media only screen and (max-width: 599px) {
+        display: none;
+    }
+`;
+
+export const StyledHeaderRow = styled.tr`
     display: contents;
 
     & > td {
         border-bottom: 1px solid ${colors.lightGreyLight5};
-    }
-
-    @media only screen and (max-width: 599px) {
-        display: none;
     }
 `;
 
@@ -78,6 +82,9 @@ export const StyledCharacterTable = styled.table<IStyledCharacterListProps>`
 
 export const StyledTablePaginator = styled.div`
     grid-row: 4 / 5;
+    & button:hover {
+        cursor: pointer;
+    }
 `;
 
 export const StyledCharacterList = styled.div`

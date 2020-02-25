@@ -19,14 +19,14 @@ enum Columns {
     MODIFIED = 'modified'
 }
 
-const columns: { [key in ListCharacter]: string } = {
+export const COLUMNS: { [key in ListCharacter]: string } = {
     id: 'ID',
     name: 'Name',
     description: 'Description',
     modified: 'Modified Date'
 } as const;
 
-const columnTypes = {
+export const COLUMN_TYPES = {
     [Columns.ID]: Constants.TYPES.TEXT,
     [Columns.NAME]: Constants.TYPES.TEXT,
     [Columns.DESCRIPTION]: Constants.TYPES.TEXT,
@@ -75,8 +75,8 @@ const useCharacters = (initialCharacters: { [key: string]: ICharacter }) => {
     return {
         state,
         dispatch,
-        columns,
-        columnTypes
+        columns: COLUMNS,
+        columnTypes: COLUMN_TYPES
     };
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import StyledInput from '../../../components/Input/Input.style';
+import Input from '../../../components/Input/Input';
 import Select, { getOptionTypeByValue } from '../../../components/Select/Select';
 import { ICharacter } from '../../Characters';
 import useSearch from '../../hooks/useSearch';
@@ -36,7 +36,7 @@ const CharacterListHeader = ({ onSearchChange, onSortChange, sortedList }: IChar
 
     return (
         <StyledCharacterListHeader>
-            <StyledSort>
+            <StyledSort data-testid='sort'>
                 <legend>Sort:</legend>
                 <Select
                     value={getOptionTypeByValue(sortField, sortFieldOptions)}
@@ -51,9 +51,9 @@ const CharacterListHeader = ({ onSearchChange, onSortChange, sortedList }: IChar
                     width='120px'
                 />
             </StyledSort>
-            <StyledSearch>
+            <StyledSearch data-testid='search'>
                 <legend>Search:</legend>
-                <StyledInput onChange={onSearchInputChange} />
+                <Input data-testid='search-input' onChange={onSearchInputChange} />
                 <Select
                     value={getOptionTypeByValue(searchOption, searchOptions)}
                     options={searchOptions}

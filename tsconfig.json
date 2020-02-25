@@ -46,6 +46,6 @@
         "baseUrl": "./src",
         "skipLibCheck": true
     },
-    "include": ["src/**/*", "@types"],
-    "exclude": ["node_modules/**", "build"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/**", "build", "tests"]
 }

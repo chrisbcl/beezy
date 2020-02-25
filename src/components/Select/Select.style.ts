@@ -20,7 +20,12 @@ export const SelectStyles = (props: IStyledSelectStylesProps) => ({
         ...provided,
         minHeight: '28px',
         boxShadow: 'none',
-        borderRadius: '0.25rem'
+        borderRadius: '0.25rem',
+        cursor: 'pointer'
+    }),
+    option: (provided: any) => ({
+        ...provided,
+        cursor: 'pointer'
     }),
     indicatorsContainer: (provided: any) => ({
         ...provided,

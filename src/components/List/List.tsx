@@ -3,14 +3,14 @@ import { StyledItem, StyledList, StyledListTitle, StyledUnorderedList } from './
 
 interface IListProps {
     children: ReactNode[];
-    title: string;
+    title?: string;
 }
 
 const List = ({ children, title }: IListProps) => {
     return (
         <StyledList>
-            <StyledListTitle>{title}</StyledListTitle>
-            <StyledUnorderedList>
+            {title && <StyledListTitle data-testid='title'>{title}</StyledListTitle>}
+            <StyledUnorderedList data-testid='list'>
                 {children.map(item => (
                     <StyledItem key={item?.toString()}>{item}</StyledItem>
                 ))}

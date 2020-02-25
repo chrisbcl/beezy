@@ -19,8 +19,8 @@ const CharacterURLs = ({ urls }: ICharacterURLsProps) => {
             <StyledCharacterURLsTitle>References</StyledCharacterURLsTitle>
             <div>
                 {urls.map(url => (
-                    <StyledCharacterURL href={url.url} target='_blank'>
-                        <StyledCharacterURLType>{url.type}</StyledCharacterURLType>
+                    <StyledCharacterURL key={url.url} data-testid='url-link' href={url.url} target='_blank'>
+                        <StyledCharacterURLType data-testid='url-type'>{url.type}</StyledCharacterURLType>
                         <FaExternalLinkAlt color={colors.primary} />
                     </StyledCharacterURL>
                 ))}

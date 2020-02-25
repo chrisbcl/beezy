@@ -9,8 +9,8 @@ interface IFieldProps {
 const Field = ({ label, children }: IFieldProps) => {
     return (
         <StyledField>
-            {label && <StyledFieldLabel>{label}</StyledFieldLabel>}
-            <StyledFieldValue>{children}</StyledFieldValue>
+            {label && <StyledFieldLabel data-testid='label'>{label}</StyledFieldLabel>}
+            <StyledFieldValue data-testid='value'>{children}</StyledFieldValue>
         </StyledField>
     );
 };

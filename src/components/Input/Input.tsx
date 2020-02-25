@@ -1,16 +1,12 @@
-import React, { ReactNode } from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import StyledInput from './Input.style';
 
-interface IInputProps {
-    children: ReactNode;
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+    children?: string;
 }
 
-const Input = ({ children }: IInputProps) => {
-    return (
-        <div>
-            <StyledInput>{children}</StyledInput>
-        </div>
-    );
+const Input = ({ children, ...rest }: IInputProps) => {
+    return <StyledInput {...rest} defaultValue={children} />;
 };
 
 export default Input;

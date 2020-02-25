@@ -60,7 +60,7 @@ const CharacterDetails = () => {
         <>
             {inError && <Redirect to='/error' />}
             {characterDetails && (
-                <StyledCharacterDetails>
+                <StyledCharacterDetails data-testid='details'>
                     <StyledCharacterDetailsActions>
                         <StyledLink to='/characters'>
                             <FaTimes />
@@ -68,7 +68,7 @@ const CharacterDetails = () => {
                     </StyledCharacterDetailsActions>
                     <StyledCharacterDetailsContent>
                         <StyledCharacterDetailsHeader>
-                            <StyledCharacterDetailsHeaderMain>
+                            <StyledCharacterDetailsHeaderMain data-testid='main'>
                                 <Field label='ID'>{characterDetails.id}</Field>
                                 <Field label='Name'>{characterDetails.name}</Field>
                                 {characterDetails.description && (
